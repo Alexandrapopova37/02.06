@@ -1,0 +1,166 @@
+#1
+<html>
+<head>
+    <title>#1</title>
+    <style>
+        form{
+          margin: auto;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        <h3>От 0  до 360 градусов</h3>
+        <input type="text" name="gradusi" placeholder="Введите">
+        <br>
+        <input type="submit" value="Применить">
+    </form>
+    <?php
+    $a = $_POST["gradusi"];
+    if(!is_numeric($a))
+        echo 'Ошибка!';
+    else{
+        $a = $a*12/360;
+        $a = floor($a);
+        echo $a;
+    }
+    ?>
+</body>
+</html>
+
+
+#2
+<html>
+<head>
+	<title>#2</title>
+	<style type="text/css">
+		form{
+			position: absolute;
+			top: 10%;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+<FORM method= "POST" action="">
+Минута: 
+<INPUT name="min" type="text">
+<BR><BR>
+<INPUT type="submit" value= "Ввод" name = "do"><BR>
+</FORM>
+	<?php
+	$color = "пусто";
+	if (isset($_POST['do']) && ($_POST['min'] != ""))
+	{
+	$min = $_POST["min"];
+	$time = $min % 5;
+	if ($min == 1 or $time == 1 )
+	{$color = "Зеленый";}
+	if ($min == 2 or $time == 2 )
+	{$color = "Зеленый";}
+	if ($min == 3 or $time == 3 )
+	{$color = "Зеленый";}
+	if ($min == 4 or $time == 4 )
+	{$color = "Красный";}
+	if ($min == 5 or $time == 0 )
+	{$color = "Красный";}
+	}
+	else 
+	{
+		echo "Параметры не найдены. ";
+	}
+		echo "Цвет светофора: " . "$color" ;
+	?>
+</body>
+</html>
+
+#3
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>#3</title>
+    <style>
+        form{
+            margin: auto;
+            text-align: left;
+
+        }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        <h3>ФИО</h3>
+        <input type="text" name="surname" placeholder="Фамилия">
+        <br>
+        <input type="text" name="name" placeholder="Имя">
+        <br>
+        <input type="text" name="patronimyc" placeholder="Отчество">
+        <br>
+        <input type="submit" value="Применить">
+    </form>
+    <?php
+    $s = $_POST["surname"];
+    $n = $_POST["name"];
+    $p = $_POST["patronimyc"];
+    
+    $name = str_split($n);
+    $patron = str_split($p);
+    
+    $n = $name[0];
+    $p = $patron[0];
+    $vivod = $s." ".$n.". ".$p.".";
+    echo $vivod;
+    ?>
+</body>
+</html>
+
+#4
+<FORM method= "POST" action="">
+
+<INPUT name="min" type="text">
+<BR><BR>
+ <title>#4</title>
+<INPUT type="submit" value= "Отправить" name = "do"><BR>
+</FORM>
+<?php
+ 
+$n = $_POST["min"];
+ 
+$s = 0;
+ 
+$n_ = 1;
+ 
+$eq_s = '';
+ 
+while( $n_ <= $n ) {
+    
+    $s += pow($n_, $n_);
+    
+    $eq_s .= "$n_^$n_".( $n_ < $n ? ' + ' : '');
+    
+    $n_ ++ ;
+}
+ 
+echo "$eq_s = $s"; 
+?>
+
+#5
+<?php
+$arrCount = 10;
+	for ($i1 = 0; $i1 < $arrCount; $i1++) {
+		$item = $arr2[] = (real)rand(1, 100);
+		echo $item. "<br>";
+	}
+	$res1 = 1;
+	foreach ($arr2 as $key => $item) {
+		if ($item > 0 && !($key % 2)){
+//			echo $item . "<br>";
+				$res1 = $res1 * $item;
+		}
+		if ($item > 0 && ($key % 2)){
+			echo "больше нуля и не парный индекс - " . $item . "<br>";
+		}
+	}
+	echo "больше нуля и парный индекс - $res1";
+?>	
